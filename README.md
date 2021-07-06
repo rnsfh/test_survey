@@ -1,4 +1,3 @@
-# medical-backend-py
 
 # Django RESTful API:
 **/admin - get access to Survey, Question, Answer table views (create, mod, delete)**
