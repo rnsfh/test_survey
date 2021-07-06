@@ -33,3 +33,11 @@ class Answer(models.Model):
   def __str__(self):
     return self.answer_text
 
+
+class AnonUser(models.Model):
+  survey = models.ForeignKey(Survey, related_name='user_survey', on_delete=models.DO_NOTHING)
+  question = models.ForeignKey(Question, related_name='user_question', on_delete=models.DO_NOTHING)
+  answer = models.ForeignKey(Answer, related_name='user_answer', on_delete=models.DO_NOTHING)
+  session_id = models.CharField(max_length=255)
+  def __str__(self):
+    return self.id

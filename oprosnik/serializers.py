@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Survey, Question, Answer
+from .models import Survey, Question, Answer, AnonUser
 
 
 class SurveySerializer(serializers.ModelSerializer):
@@ -9,6 +9,7 @@ class SurveySerializer(serializers.ModelSerializer):
     model = Survey
     fields = [
       'title',
+      'id',
       'start_date',
       'end_date',
       'description'
@@ -34,5 +35,12 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     model = Question
     fields = [
-      'survey','title','answer'
+      'survey','title','id','answer'
+    ]
+
+class AnonUserSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = AnonUser
+    fields = [
+      'survey','question','answer'
     ]
